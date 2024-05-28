@@ -59,7 +59,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "options":{
+          "options": {
             "ssl": true,
             "sslCert": "./ssl/localhost.pem",
             "sslKey": "./ssl/localhost-key.pem"

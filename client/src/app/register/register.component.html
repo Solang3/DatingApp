@@ -1,0 +1,72 @@
+
+<form #registerForm="ngForm" (ngSubmit)="register()" autocomplete="off">
+    <h2 class="text-center text-primary">Registrate</h2>
+    <hr>
+    <div class="mb-3">
+        <input type="text" 
+            name="username" 
+            class="form-control" 
+            [(ngModel)]="model.username" 
+            placeholder="Usuario"
+            >
+    </div>
+    <div class="mb-3">
+        <input type="password" 
+            name="password" 
+            class="form-control" 
+            [(ngModel)]="model.password" 
+            placeholder="Password"
+            >
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success me-2" type="submit">Registrame</button>
+        <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>
+    </div>
+
+
+
+
+    <!--<label for="consumerType">Tipo de Consumidor:</label>
+    <select id="consumerType" [(ngModel)]="user.consumerType">
+    <option value="recreativo">Recreativo</option>
+    <option value="medicinal">Medicinal</option>
+    <option value="ambas">Ambas</option>
+    </select>
+
+    <label for="consumptionFrequency">Frecuencia de Consumo:</label>
+    <select id="consumptionFrequency" [(ngModel)]="user.consumptionFrequency">
+    <option value="diariamente">Diariamente</option>
+    <option value="semanalmente">Semanalmente</option>
+    <option value="mensualmente">Mensualmente</option>
+    <option value="ocasionalmente">Ocasionalmente</option>
+    </select>
+
+    <label for="consumptionMethod">Método Preferido de Consumo:</label>
+    <select id="consumptionMethod" [(ngModel)]="user.consumptionMethod">
+    <option value="fumar">Fumar (Porros, pipas)</option>
+    <option value="vaporizadores">Vaporizadores</option>
+    <option value="comestibles">Comestibles</option>
+    <option value="tinturas">Tinturas</option>
+    <option value="dabs">Dabs/Concentrados</option>
+    <option value="otros">Otros</option>
+    </select>
+
+    <label for="preferredVariety">Variedad Preferida:</label>
+    <select id="preferredVariety" [(ngModel)]="user.preferredVariety">
+    <option value="indica">Indica</option>
+    <option value="sativa">Sativa</option>
+    <option value="híbrida">Híbrida</option>
+    <option value="sin preferencia">Sin preferencia</option>
+    </select>
+
+    <label for="reasonsForConsumption">Razones para el Consumo:</label>
+    <select id="reasonsForConsumption" [(ngModel)]="user.reasonsForConsumption" multiple>
+    <option value="relajación">Relajación</option>
+    <option value="socialización">Socialización</option>
+    <option value="alivio del dolor">Alivio del dolor</option>
+    <option value="ansiedad/depresión">Ansiedad/Depresión</option>
+    <option value="insomnio">Insomnio</option>
+    <option value="creatividad">Creatividad</option>
+    <option value="otros">Otros</option>
+    </select>-->
+</form>

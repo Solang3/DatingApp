@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <div class="text-center" *ngIf="!registerMode">
+        <div class="col-sm d-flex flex-column justify-content-center align-items-center">
+            <h1 class="heading">Más que un match, una conexión verde</h1>
+            <p class="lead">Conectá con personas con tus mismas afinidades cannábicas</p>
+            <div class="text-center">
+                <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Registrate</button>
+                <button class="btn btn-outline-primary btn-lg">Conoce más</button>
+            </div>
+        </div>
+    </div>
+    <div class="container" *ngIf="registerMode">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+</div>
