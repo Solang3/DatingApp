@@ -1,33 +1,37 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" 
+          aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#"><h1 class="heading">ToKe</h1></a>
+      <a class="navbar-brand"  [routerLink]="'/'" routerLinkActive="active"><h1 class="logo">ToKe</h1></a>
       <div class="collapse navbar-collapse d-flex  justify-content-end" id="navbarTogglerDemo03">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="accountService.currentUser$ |async">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Matches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Messages</a>
-          </li>
-        </ul>
-
-        <div class="d-flex dropdown" dropdown *ngIf="accountService.currentUser$ |async">
+        <ng-container *ngIf="accountService.currentUser$ |async">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/members'" routerLinkActive="active">Matches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/lists'" routerLinkActive="active">List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'/messages'" routerLinkActive="active">Messages</a>
+            </li>
+          </ul>
+        </ng-container>
+        
+        <div class="d-flex dropdown" dropdown *ngIf="(accountService.currentUser$ | async) as user">
             <a href id="basic-link" dropdownToggle (click)="false"
-               aria-controls="dropdown-toggle" class="dropdown-toggle">Welcome!</a>
+               aria-controls="dropdown-toggle" class="dropdown-toggle">Welcome {{user.userName | titlecase}}!</a>
             <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu p-2"  data-bs-theme="light"
                 role="menu" aria-labelledby="basic-link">
-                <li class="dropdown-item">Edit profile</li>
+                <li class="dropdown-item" [routerLink]="'/profile'">Edit profile</li>
                 <li class="dropdown-item" (click)="logOut()">Logout</li>
             </ul>
         </div>
 
-        <form *ngIf="!(accountService.currentUser$ |async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+        <form *ngIf="!(accountService.currentUser$ | async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
           <input 
             name="username" 
             [(ngModel)]="model.username"
@@ -40,7 +44,7 @@
             class="form-control me-2" 
             type="password" 
             placeholder="Password">
-          <button class="btn btn-primary" type="submit">Login</button>
+          <button class="btn btn-success" type="submit">Login</button>
         </form>
       </div>
     </div>
